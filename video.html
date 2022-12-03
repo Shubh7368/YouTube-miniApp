@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body onload="playVideo()">
+
+    <!-- <div id="container">
+
+    </div> -->
+
+    <h1>Play Video</h1>
+
+    <!-- Embeded iframe from youtube -->
+    <iframe
+      id="play_video"
+      width="560"
+      height="315"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+
+  </body>
+</html>
+
+<script>
+  // calling this, whenever page load , using onload event
+  let playVideo = () => {
+    let video = JSON.parse(localStorage.getItem("video"));
+
+    let { id:{videoId} } = video;
+
+    const playVideo = document.querySelector("#play_video");
+
+   // let id = video.id.videoId; // getting Video ID, to make our link DYNAMIC
+   let id = videoId;
+
+    playVideo.src = `https://www.youtube.com/embed/${id}`;
+  };
+</script>
